@@ -1,0 +1,13 @@
+<?page title="Soulmates Detector"?>
+<zk>
+
+<zscript><![CDATA[
+                  if(session.getAttribute("user")==null){
+                	  Executions.sendRedirect("login.zul");
+//                	  Executions.sendRedirect("FB/");
+                  }
+                  ]]></zscript>
+<include src="inTest.zul" if="${session.attributes['user']!=null}"/>
+
+</zk>
+

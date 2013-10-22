@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>FindMyTwins</display-name>
+<!-- 
+	<listener>
+		<description>
+		Used to cleanup when a session is destroyed</description>
+		<display-name>ZK Session cleaner</display-name>
+		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
+	</listener>
+	 -->
+	 <listener>
+		<listener-class>sonet.findmytwins.Initiator</listener-class>
+	</listener>
+	<listener>
+		<listener-class>sonet.findmytwins.SessionListener</listener-class>
+	</listener>
+	<servlet>
+		<description>
+		The ZK loader for ZUML pages</description>
+		<servlet-name>zkLoader</servlet-name>
+		<servlet-class>
+		org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
+		<init-param>
+			<param-name>update-uri</param-name>
+			<param-value>/zkau</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet>
+		<description>
+		The asynchronous update engine for ZK</description>
+		<servlet-name>auEngine</servlet-name>
+		<servlet-class>
+		org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>FBInitServlet</display-name>
+		<servlet-name>FBInitServlet</servlet-name>
+		<servlet-class>
+		sonet.findmytwins.service.fb.FBInitServlet</servlet-class>
+		<init-param>
+			<description>
+			</description>
+			<param-name>API_KEY</param-name>
+			<param-value>0559532fc589ee8090e0b42c642581a4</param-value>
+		</init-param>
+		<init-param>
+			<description>
+			</description>
+			<param-name>SECRET_KEY</param-name>
+			<param-value>79a9501c11f97d5522db4250d6745890</param-value>
+		</init-param>
+		<!-- load-on-startup />  -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>zkLoader</servlet-name>
+		<url-pattern>*.zul</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>zkLoader</servlet-name>
+		<url-pattern>*.zhtml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>auEngine</servlet-name>
+		<url-pattern>/zkau/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FBInitServlet</servlet-name>
+		<url-pattern>/FB/*</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<description>
+		</description>
+		<display-name>RobocopListener</display-name>
+		<filter-name>RobocopListener</filter-name>
+		<filter-class>sonet.findmytwins.RobocopListener</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>RobocopListener</filter-name>
+		<url-pattern>*.zul</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>index.zul</welcome-file>
+	</welcome-file-list>
+</web-app>

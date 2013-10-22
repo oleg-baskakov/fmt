@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="FindMyTwins">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../dev/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+	
+    <path id="Apache Tomcat v6.0 [Apache Tomcat v6.0].libraryclasspath">
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/annotations-api.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/catalina-ant.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/catalina-ha.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/catalina-tribes.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/catalina.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/el-api.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/jasper-el.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/jasper-jdt.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/jasper.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/jsp-api.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/servlet-api.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/tomcat-coyote.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/tomcat-dbcp.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/tomcat-i18n-es.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/tomcat-i18n-fr.jar"/>
+        <pathelement location="../../datacopy/apache-tomcat-6.0.29/lib/tomcat-i18n-ja.jar"/>
+    </path>
+    <path id="Web App Libraries.libraryclasspath">
+        <pathelement location="WebContent/WEB-INF/lib/appengine-api-1.0-sdk-1.3.8.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/appengine-api-labs-1.3.8.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/appengine-jsr107cache-1.3.8.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/breeze.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/bsh.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-fileupload.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/commons-io.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/datanucleus-appengine-1.0.7.final.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/datanucleus-core-1.1.5.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/datanucleus-jpa-1.1.5.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/fckez.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/geronimo-jpa_3.0_spec-1.1.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/geronimo-jta_1.1_spec-1.1.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/groovy.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jdo2-api-2.3-eb.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jruby.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/js.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jsr107cache-1.1.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/jython.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zcommon.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zcommons-el.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zhtml.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zk.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zkex.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zkplus.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zul.jar"/>
+        <pathelement location="WebContent/WEB-INF/lib/zweb.jar"/>
+    </path>
+    <path id="EAR Libraries.libraryclasspath"/>
+    <path id="FindMyTwins.classpath">
+        <pathelement location="WebContent/WEB-INF/classes"/>
+        <path refid="Apache Tomcat v6.0 [Apache Tomcat v6.0].libraryclasspath"/>
+        <path refid="Web App Libraries.libraryclasspath"/>
+        <path refid="EAR Libraries.libraryclasspath"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/ejb3-persistence.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/hibernate-commons-annotations.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/hibernate-core.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/slf4j-api.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/commons-collections-3.1.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/dom4j-1.6.1.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/javassist-3.4.GA.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-entitymanager-3.4.0.GA/hibernate-entitymanager-3.4.0.GA/lib/jta.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/antlr-2.7.6.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/test/slf4j-log4j12.jar"/>
+        <pathelement location="../../dev/lib/commons-logging-1.1.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-el_1.0_spec-1.0.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-jsp_2.1_spec-1.0.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-servlet_2.5_spec-1.2.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/jsr107cache-1.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-appengine-1.0.7.final.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-core-1.1.5.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-jpa-1.1.5.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/geronimo-jpa_3.0_spec-1.1.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/geronimo-jta_1.1_spec-1.1.1.jar"/>
+        <pathelement location="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/jdo2-api-2.3-eb.jar"/>
+        <pathelement location="../../dev/lib/activation.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-3.0.2.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-annotation-processor-3.0.2.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-schema-3.0.2.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/jaxb-api-2.1.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/runtime-0.4.1.5.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/stax-api-1.0-2.jar"/>
+        <pathelement location="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/json-20080701.jar"/>
+        <pathelement location="../../dev/lib/mysql-connector-java-5.1.5/mysql-connector-java-5.1.5-bin.jar"/>
+        <pathelement location="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/test/log4j.jar"/>
+        <pathelement location="../../dev/lib/c3p0-0.9.1.2.bin/c3p0-0.9.1.2/lib/c3p0-0.9.1.2.jar"/>
+        <pathelement location="../../dev/lib/c3p0-0.9.1.2.bin/c3p0-0.9.1.2/hibernate-c3p0-3.3.1.GA.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="WebContent/WEB-INF/classes"/>
+        <copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="WebContent/WEB-INF/classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="WebContent/WEB-INF/classes" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="FindMyTwins.classpath"/>
+        </javac>
+    </target>
+    <target  name="copylibs">
+   	 	
+    	
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/hibernate-annotations.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/ejb3-persistence.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/hibernate-commons-annotations.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/hibernate-core.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/slf4j-api.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/commons-collections-3.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/dom4j-1.6.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/javassist-3.4.GA.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-entitymanager-3.4.0.GA/hibernate-entitymanager-3.4.0.GA/lib/jta.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-distribution-3.3.1.GA-dist/hibernate-distribution-3.3.1.GA/lib/required/antlr-2.7.6.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/test/slf4j-log4j12.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/commons-logging-1.1.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-el_1.0_spec-1.0.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-jsp_2.1_spec-1.0.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/shared/geronimo-servlet_2.5_spec-1.2.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/jsr107cache-1.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-appengine-1.0.7.final.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-core-1.1.5.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/datanucleus-jpa-1.1.5.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/geronimo-jpa_3.0_spec-1.1.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/geronimo-jta_1.1_spec-1.1.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/appengine-java-sdk-1.3.8/appengine-java-sdk-1.3.8/lib/user/orm/jdo2-api-2.3-eb.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/activation.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-3.0.2.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-annotation-processor-3.0.2.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/facebook-java-api-schema-3.0.2.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/jaxb-api-2.1.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/runtime-0.4.1.5.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/stax-api-1.0-2.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/facebook-java-api-3.0.2-bin/facebook-java-api-3.0.2/lib/json-20080701.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/mysql-connector-java-5.1.5/mysql-connector-java-5.1.5-bin.jar"/>
+    		        <copy todir="/libs" file="../../dev/hibernate/hibernate-annotations-3.4.0.GA/hibernate-annotations-3.4.0.GA/lib/test/log4j.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/c3p0-0.9.1.2.bin/c3p0-0.9.1.2/lib/c3p0-0.9.1.2.jar"/>
+    		        <copy todir="/libs" file="../../dev/lib/c3p0-0.9.1.2.bin/c3p0-0.9.1.2/hibernate-c3p0-3.3.1.GA.jar"/>
+ 
+    	
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AnswersService">
+        <java classname="sonet.findmytwins.processors.AnswersService" failonerror="true" fork="yes">
+            <classpath refid="FindMyTwins.classpath"/>
+        </java>
+    </target>
+</project>

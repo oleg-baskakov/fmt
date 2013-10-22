@@ -1,0 +1,62 @@
+<zk>
+<div height="100px"/>
+<window width="450px" onOK="doOK()">
+	<groupbox mold="3d" closable="false" >
+		<caption label="Register Form"/>
+		<zscript>
+		<![CDATA[//@IMPORT
+		import org.zkoss.lang.Strings;
+		import org.zkoss.lang.Objects;
+		import sonet.findmytwins.data.User;
+		import sonet.findmytwins.processors.AnswersService;
+		]]><![CDATA[//@DECLARATION
+		public void doRegister(){
+			String name = nametb.getValue();
+			String pwd = pwdtb2.getValue();
+//			String email = emailtb.getValue();
+		//	cpatb.getValue();
+			User user=AnswersService.getInstance().createUser(name,pwd);
+			if(user==null){
+				alert("System error!");
+				return;
+			}
+			session.setAttribute("user",user);
+			Executions.sendRedirect("index.zul");
+		}
+		public void doOK(){
+			doRegister();
+		}
+		Constraint pwc = new Constraint() {
+	    	public void validate(Component comp, Object value) throws WrongValueException {
+		       	if (!Objects.equals(pwdtb.getValue(),value)){
+					throw new WrongValueException(comp, "Password doesn't euqal");
+		    	}
+	    	}
+	 	};		
+		]]></zscript>
+		<div >
+			<grid>
+				<rows>
+					<row>
+						Name :
+						<textbox id="nametb" width="200px" constraint="no empty"/>
+					</row>
+					<row>
+						Password :
+						<textbox id="pwdtb" width="200px"
+							type="password" constraint="no empty"/>
+					</row>
+					<row>
+						Password Again :
+						<textbox id="pwdtb2" width="200px"
+							type="password" constraint="${pwc}"/>
+					</row>
+				</rows>
+			</grid>			
+			<hbox pack="center" width="100%">
+				<button label="Register" onClick="doRegister()"/>
+			</hbox>
+		</div>
+	</groupbox>
+</window>
+</zk>

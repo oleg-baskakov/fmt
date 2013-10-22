@@ -1,0 +1,69 @@
+<zk>
+<zscript><![CDATA[//@IMPORT
+		import org.zkoss.lang.Strings;
+		import sonet.findmytwins.data.User;
+		import sonet.findmytwins.processors.AnswersService;
+		]]><![CDATA[//@DECLARATION
+		public void setTab(){
+			//Tabbox tb=panel.getParent();
+			int index=tbResult.getSelectedTab().getIndex();
+			Tabpanel pnl=tbResult.getTabpanels().getChildren().get(index);
+			Include incl=(Include)pnl.getFirstChild();
+			String power=""+pnl.getAttribute("power");
+
+			ArrayList twins=AnswersService.getInstance().getTwinsForTab(user,power);
+			incl.setDynamicProperty("twins",twins);
+			incl.setSrc("_resultList.zul");
+		}
+		public void initTab(){
+			//Tabbox tb=panel.getParent();
+			int index=sonet.findmytwins.processors.DBProcessor.getMaxSMPower(user);
+			if(index<=0||index>AnswersService.NUM_SELECTED_PIC)index=1;
+			
+			Tabpanel pnl=tbResult.getTabpanels().getChildren().get(index-1);
+			tbResult.setSelectedIndex(index-1);
+			Include incl=(Include)pnl.getFirstChild();
+			String power=""+pnl.getAttribute("power");
+	
+			ArrayList twins=AnswersService.getInstance().getTwinsForTab(user,power);
+			incl.setDynamicProperty("twins",twins);
+			if(requestScope.get("testOk")!=null){
+				String alertMsg="Matching proccess is finished.\n";
+				if(twins.size()==0){
+					alertMsg+="We have no found any soulmates yet. The more people pass this test the more chance to find your soulmates with maximum SoulMatch Power! ";
+					
+				}else
+				if(index>3){
+					alertMsg+="Congratulations!!! You have soulmates with matched power of "+index;
+				}
+				incl.setDynamicProperty("popup",alertMsg);
+			}
+			incl.setSrc("_resultList.zul");
+		}
+		]]>
+		<![CDATA[ 
+					ArrayList tabs=new ArrayList();
+                  User user=session.getAttribute("user");
+                  if(user==null){
+                	  Executions.sendRedirect("index.zul");
+                  }else                  
+                  	tabs=AnswersService.getInstance().getResultTabs(user);
+                  
+                  
+]]></zscript>
+
+
+<tabbox id="tbResult" onCreate="initTab()" >
+	<tabs   tooltiptext="List of tested users with certain SoulMatch Power. SMP - Number of  matched pictures " >
+		<tab  onClick="setTab()" id="tab_${forEachStatus.index}" forEach="${tabs}" label="${each['tabName']}" />
+	</tabs>
+	<tabpanels >
+		<tabpanel forEach="${tabs}" id="${each['id']}"   height="399px">
+			<custom-attributes power="${each['power']}" />
+			<include id=""   />
+
+		</tabpanel>
+		
+	</tabpanels>
+</tabbox>
+</zk>

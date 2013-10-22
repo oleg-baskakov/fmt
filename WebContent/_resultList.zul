@@ -1,0 +1,28 @@
+<zk>
+<zscript><![CDATA[//@IMPORT
+                import sonet.findmytwins.model.TwinRender;
+                import java.util.ArrayList;	
+                  ]]>
+<![CDATA[
+         			if(requestScope.get("popup")!=null){
+         				
+         				Messagebox.show(""+requestScope.get("popup"), "Information", Messagebox.OK, Messagebox.INFORMATION);
+         				requestScope.remove("popup");
+         			}
+                  ListModelList modelMap=new ListModelList((ArrayList)requestScope.get("twins"));
+                  
+                  TwinRender render=new TwinRender();
+                  String hlp="These tabs holds  list of people with range of SoulMatch Power. The more Power the better matching of your interests. Ideal Soulmate has Power of 10.";
+                  ]]>
+</zscript>
+	<listbox height="399px" model="${modelMap }" onSelect="" itemRenderer="${render }" mold="paging" pageSize="10" onPaging="" >
+		<listhead >
+			<listheader label="avatar" width="54px" />
+			<listheader label="name"/>
+			<listheader label="gender"/>
+			<listheader label="country"/>
+		</listhead>
+	
+	</listbox>
+	
+</zk>

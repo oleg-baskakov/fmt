@@ -1,0 +1,70 @@
+<zk>
+<style src="/main.css"/>
+<window id="win"  border="normal" width="740px" contentStyle="overflow:auto"  height="490px"  >
+	<zscript>
+		<![CDATA[//@IMPORT
+		import org.zkoss.lang.Strings;
+		import sonet.findmytwins.data.User;
+		import sonet.findmytwins.processors.AnswersService;
+		]]><![CDATA[//@DECLARATION
+		public void submitAnswers(){
+			
+			
+			ArrayList answers=(ArrayList)session.getAttribute("answers");
+			HashMap result=AnswersService.getInstance().saveUserAnswers(user,answers);
+			user.setTestDate(new Date());
+			requestScope.put("testOk","");
+			sonet.findmytwins.DBUtils.updateObject(user);
+			
+			if(result.containsKey("error")){
+				try{
+					Messagebox.show(""+result.get("error"), "Error", Messagebox.OK, Messagebox.EXCLAMATION);
+					}catch(Exception e){
+						
+					}
+					Executions.sendRedirect("index.zul");
+					
+			}else{
+				if(result.containsKey("page")){
+					centerField.getChildren().clear();
+					Executions.createComponents(""+result.get("page"),centerField,null);
+					
+				}
+			}
+			
+			
+			
+			//Executions.sendRedirect("index.zul");
+			
+		}
+		]]>
+		<![CDATA[//
+		User user=(User)session.getAttribute("user");
+			if(user==null){
+				try{
+				Messagebox.show("Please login or register", "Warning", Messagebox.OK, Messagebox.EXCLAMATION);
+				}catch(Exception e){
+					
+				}
+				return;
+			}
+		int total=AnswersService.getInstance().getTotalTestedUser();
+		int online=AnswersService.getInstance().getOnlineUsers();
+		String label="Soulmates Detector ";
+		if(user.getName()!=null&&user.getName().length()>0){
+			label+="operated by "+user.getName();
+		}
+		]]>
+		</zscript>
+	<caption image="/icon-24x24.png" label="${label }" >
+	Users online:${online }   Tested users: ${total }
+	</caption>
+	 		<div id="centerField" >
+			<include  src="gameGrid.zul" if="${user.testDate==null }" />
+			<include  src="result.zul" if="${user.testDate!=null }" />
+			</div>
+
+</window>
+
+</zk>
+			

@@ -1,0 +1,92 @@
+
+<zk>
+<zscript><![CDATA[//@IMPORT
+                import sonet.findmytwins.processors.AnswersService;
+                import java.util.ArrayList;	
+                  ]]>
+         <![CDATA[//@DECLARATION
+         int a=AnswersService.NUM_SELECTED_PIC;
+         ArrayList selectedPhotos=new ArrayList(AnswersService.NUM_SELECTED_PIC);
+         ArrayList photosSrc=new ArrayList(AnswersService.NUM_SELECTED_PIC);
+                  public void toggle(Component id, String src){
+            		  Image img=(Image)id;
+						String key=img.getId();
+						String width=img.getAttribute("width");
+						String height=img.getAttribute("ht");
+						//System.out.println("ht="+height);
+                	  if(selectedPhotos.contains(key)){
+                		  String src2=""+photosSrc.get(selectedPhotos.indexOf(key));
+                		  img.setSrc(src2);
+                		//  Messagebox.show("src "+src2, "Warning", Messagebox.OK, Messagebox.EXCLAMATION);
+                		  img.setStyle("background:none;");
+                		  selectedPhotos.remove(key);
+                		  photosSrc.remove(src2);
+                	  }else if(selectedPhotos.size()<AnswersService.NUM_SELECTED_PIC){
+                		  selectedPhotos.add(key);
+                		  photosSrc.add(img.getSrc());
+                		  img.setSrc("grid/frame3r.png");
+//                		  img.setSrc("grid/transparent.gif");
+                		  if(width!=null)
+                		  	img.setWidth(width);
+                		  if(height!=null)
+                		  	img.setHeight(height);
+                		// System.out.println(height);
+                		  img.setStyle("background:url("+src+");");
+                    	 // lable1.setValue(src);
+                		  
+                	  }else{
+                      	Messagebox.show(" You've select sufficient number of pics. Now You can continue to check matches (please press 'Get result' at the bottom of pics list) or revise your choice.", "Warning", Messagebox.OK, Messagebox.EXCLAMATION);
+                		  
+                	  }
+                	  a=AnswersService.NUM_SELECTED_PIC-selectedPhotos.size();
+                	// Messagebox.show("id "+id, "Warning", Messagebox.OK, Messagebox.EXCLAMATION);
+        	 		if(a==0){
+        	 			lable1.setValue("Ok, now we can start to search Your Soulmates.");
+        	 			btnNextAbove.setDisabled(false);
+        	 			btnNext.setDisabled(false);
+        	 		}else{
+                		lable1.setValue("Please  select "+a+" photos and push this button");
+        	 		//	btnNextAbove.setVisible(false);
+        	 			btnNext.setDisabled(true);
+        	 		}
+        	 		
+         }
+                  
+                  
+				]]>
+                           
+                  <![CDATA[
+ArrayList data=AnswersService.getInstance().getImages(1);
+session.setAttribute("answers",selectedPhotos);
+session.setAttribute("answersStep",1);
+
+	//Object[][] data=new Object[][]{{"sdd"},{"sxss","sxw"}};
+	
+//	gameGrid.setModel(model);
+	//gameGrid.setRowRenderer(new findmytwins.ingame.GridGameRender());	
+]]>
+</zscript>
+<hbox>
+<label id="lable1" value="Please select ${a} photos" /><separator/>
+<button id="btnNextAbove" label="Get result" onClick="submitAnswers()" disabled="true"  />
+</hbox>
+<vbox forEach="${data}" >
+	
+	<zscript><![CDATA[ 
+		ArrayList data2=  each;
+		
+		]]>
+	</zscript>
+	<hbox width="100%" style="padding:0px;">
+
+		<image align="center"  forEach="${data2}" width="120" src="${each[0]}"
+		 id="${each[1]}" onClick="toggle(self, self.src)"  >
+		 <custom-attributes  ht="${each[3]}" />
+		 <custom-attributes if="{each[2]!=null}"  width="${each[2]}" />
+		 </image>
+	</hbox>		
+
+</vbox>
+				<button id="btnNext" label="Get result" onClick="submitAnswers()" disabled="true"/>
+
+</zk>

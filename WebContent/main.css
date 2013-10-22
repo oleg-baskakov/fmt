@@ -1,0 +1,39 @@
+@CHARSET "UTF-8";/*SEC:WINDOW-EMBEDDED:mainWnd*/
+/*RULE:HEADER-FONT*/
+.mainWnd .z-window-embedded-header .z-caption .z-caption-l, .mainWnd .z-window-embedded-header .z-caption .z-caption-r {
+	font-family : arial; /*PRO*/
+	font-size : 14px; /*PRO*/
+	color : #C0C0C0; /*PRO*/
+	background: url('../icon-24x24.png'); 
+}
+/*RULE_E*//*RULE:TOP-LEFT*/
+.mainWnd .z-window-embedded-tl, .mainWnd .z-window-embedded-tl-noborder {
+	background-color : #8080FF; /*PRO*/
+}
+/*RULE_E*//*RULE:HEADER*/
+.mainWnd .z-window-embedded-header, .mainWnd .z-window-embedded-header-noborder {
+	height : 30px; /*PRO*/
+	background: url('../icon-24x24.png'); 
+}
+/*RULE_E*//*RULE:HEADER-MIDDLE*/
+.mainWnd .z-window-embedded-hm{
+	background: url('../icon-24x24.png'); 
+	background-position : top center;
+}
+/*RULE_E*//*RULE:CONTENT*/
+.mainWnd .z-window-embedded-cnt, .mainWnd .z-window-embedded-cnt-noborder{
+	background-color : #FFFFFF; /*PRO*/
+}
+	
+/*RULE_E*//*RULE:TOP-RIGHT*/
+.mainWnd .z-window-embedded-tr, .mainWnd .z-window-embedded-tr-noborder {
+	background-color : #80FF80; /*PRO*/
+}
+/*RULE_E*//*RULE:BORDER*/
+.mainWnd.z-window-embedded {
+	border-style : dotted; 
+	border-width : thin; 
+	border-color : #8080FF; 
+}
+/*RULE_E*/
+/*SEC_E*/
